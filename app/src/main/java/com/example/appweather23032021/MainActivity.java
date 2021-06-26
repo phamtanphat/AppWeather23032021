@@ -38,23 +38,6 @@ public class MainActivity extends AppCompatActivity {
         // Bước 1 : Khởi tạo Retrofit
         mImgView = findViewById(R.id.imageView);
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                            .connectTimeout(10 , TimeUnit.SECONDS)
-                            .readTimeout(10 , TimeUnit.SECONDS)
-                            .writeTimeout(10 , TimeUnit.SECONDS)
-                            .retryOnConnectionFailure(true)
-                            .protocols(Arrays.asList(Protocol.HTTP_1_1))
-                            .build();
-
-        Gson gson = new GsonBuilder().setLenient().create();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://khoapham.vn/")
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        ApiRequest apiRequest = retrofit.create(ApiRequest.class);
 
 //        Call<Demo1> callback = apiRequest.getDemo1();
 //
@@ -88,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("BBB",danhsach.getKhoahoc());
                 }
             }
-
             @Override
             public void onFailure(Call<Demo2> call, Throwable t) {
 
