@@ -39,43 +39,5 @@ public class MainActivity extends AppCompatActivity {
         mImgView = findViewById(R.id.imageView);
 
 
-//        Call<Demo1> callback = apiRequest.getDemo1();
-//
-//        callback.enqueue(new Callback<Demo1>() {
-//            @Override
-//            public void onResponse(Call<Demo1> call, Response<Demo1> response) {
-//                Demo1 demo1 = response.body();
-//                Glide.with(MainActivity.this)
-//                        .load(demo1.getLogo())
-//                        .fitCenter()
-//                        .override(300 , 200)
-//                        .placeholder(R.mipmap.ic_launcher)
-//                        .error(android.R.drawable.stat_notify_error)
-//                        .into(mImgView);
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Demo1> call, Throwable t) {
-//
-//            }
-//        });
-
-        Call<Demo2> demo2Call = apiRequest.getDemo2();
-
-        demo2Call.enqueue(new Callback<Demo2>() {
-            @Override
-            public void onResponse(Call<Demo2> call, Response<Demo2> response) {
-                Demo2 demo2 = response.body();
-                for (Danhsach danhsach: demo2.getDanhsach()) {
-                    Log.d("BBB",danhsach.getKhoahoc());
-                }
-            }
-            @Override
-            public void onFailure(Call<Demo2> call, Throwable t) {
-
-            }
-        });
-
     }
 }
