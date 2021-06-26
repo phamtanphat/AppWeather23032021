@@ -17,6 +17,7 @@ public class RetrofitClient {
     private ApiRequest apiRequest = null;
     private RetrofitClient(){
         retrofit = createRetrofit();
+        apiRequest = retrofit.create(ApiRequest.class);
     }
 
     public static RetrofitClient getInstance(){
@@ -51,6 +52,6 @@ public class RetrofitClient {
     }
 
     public ApiRequest getApiRequest(){
-        return retrofit.create(ApiRequest.class);
+        return apiRequest;
     }
 }
