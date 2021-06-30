@@ -38,6 +38,25 @@ public class MainActivity extends AppCompatActivity {
         // Bước 1 : Khởi tạo Retrofit
         mImgView = findViewById(R.id.imageView);
 
+        Call<WeatherModel> weatherData = RetrofitClient.getInstance()
+                .getApiRequest()
+                .getWeather(
+                        "86183a23377ed034aef7aad102f43d64",
+                        "metric",
+                        "Hanoi"
+                );
 
+        weatherData.enqueue(new Callback<WeatherModel>() {
+            @Override
+            public void onResponse(Call<WeatherModel> call, Response<WeatherModel> response) {
+                WeatherModel weather = response.body();
+                Log.d("BBB",weather.toString());
+            }
+
+            @Override
+            public void onFailure(Call<WeatherModel> call, Throwable t) {
+
+            }
+        });
     }
 }

@@ -12,6 +12,7 @@ public class WeatherModel {
      * dt : 1624711077
      * name : Hanoi
      * cod : 200
+     * message : "city not found"
      */
 
     @SerializedName("weather")
